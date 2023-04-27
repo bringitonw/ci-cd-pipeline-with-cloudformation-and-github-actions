@@ -1,4 +1,5 @@
-name: "Deploy my-mimi-stack2"
+name: Deploy my-mimi-stack
+
 on:
  push:
   branches:
@@ -30,5 +31,4 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
      run: |
-      aws s3 sync . s3://my-web-content-bucket/ --exclude "*"
---include "index.html" --region us-east-1
+      aws s3 sync . s3://my-web-content-bucket/ --exclude "*" --include "index.html" --region us-east-1
